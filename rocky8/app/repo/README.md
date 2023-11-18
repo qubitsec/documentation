@@ -29,7 +29,15 @@ for local
     
     createrepo /var/www/repos/rocky/8/x86_64/os/extras/
 
-### 1.5 update repodata
+### 1.5 update from official repository
+
+    reposync -p /var/www/repos/rocky/8/x86_64/os/ --newest-only --repo=baseos --download-metadata
+    
+    reposync -p /var/www/repos/rocky/8/x86_64/os/ --newest-only --repo=appstream --download-metadata
+    
+    reposync -p /var/www/repos/rocky/8/x86_64/os/ --newest-only --repo=extras --download-metadata
+
+### 1.6 update repodata
 
     createrepo --update /var/www/repos/rocky/8/x86_64/os/appstream/
     
@@ -37,17 +45,17 @@ for local
     
     createrepo --update /var/www/repos/rocky/8/x86_64/os/extras/
 
-### 1.4 selinux
+### 1.7 selinux
 
     restorecon -r /var/www/repos/
 
-### 1.5 setting rules to firewalld
+### 1.8 setting rules to firewalld
 
     firewall-cmd --add-service=httpd --permanent
     
     firewall-cmd --reload
 
-### 1.6 testing
+### 1.9 testing
 
     dnf repolist
 
@@ -69,11 +77,15 @@ for local
 
     createrepo /var/www/repos/rocky/epel/8/Everything/x86_64/
 
-### 2.4 update repodata
+### 2.4 update from official repository
+
+    reposync -p /var/www/repos/rocky/epel/8/Everything/x86_64/ --newest-only --repo=epel --download-metadata
+
+### 2.5 update repodata
 
     createrepo --update /var/www/repos/rocky/epel/8/Everything/x86_64/
 
-### 2.4 testing
+### 2.6 testing
 
     dnf list xrdp
 
