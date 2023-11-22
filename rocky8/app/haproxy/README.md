@@ -102,4 +102,4 @@ haproxy-2.6.7.tar.gz
     
 ## X. Useful Links
 
-    https://www.haproxy.com/blog/redirect-http-to-https-with-haproxy
+    - https://www.haproxy.com/blog/redirect-http-to-https-with-haproxy
