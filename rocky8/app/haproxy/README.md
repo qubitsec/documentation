@@ -89,6 +89,12 @@ haproxy-2.6.7.tar.gz
      
     server mybackendserver 127.0.0.1:433 ssl verify none
  
+ ### 4.2 Redirect all HTTP sites to HTTPS
+     
+    redirect prefix https_www_qubitsec_com if http_www_qubitsec_com
+
+    systemctl restart haproxy
+   
  ### 9.1 TESTING
     
     systemctl status systemd-tmpfiles-setup.service
