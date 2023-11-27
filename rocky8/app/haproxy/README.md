@@ -92,7 +92,7 @@ haproxy-2.6.7.tar.gz
  ### 4.2 Redirect all HTTP sites to HTTPS
      
     acl http_www_qubitsec_com hdr_dom(host) -i qubitsec.com
-    redirect prefix https_www_qubitsec_com if http_www_qubitsec_com
+    redirect prefix https://www.qubitsec.com if http_www_qubitsec_com
 
     systemctl restart haproxy
   
