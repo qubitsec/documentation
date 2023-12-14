@@ -7,7 +7,12 @@
 
     dnf -y install nfs-utils
 
-### 1.2 Config
+
+### 1.2 Make directory
+
+    mkdir -p /home/nfsshare
+
+### 1.3 Config
 
     vi /etc/idmapd.conf
     
