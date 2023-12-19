@@ -1,7 +1,7 @@
 # nfs
 
 
-## 1. Install
+## 1. Install NFS Server
 
 ### 1.1 Install
 
@@ -24,9 +24,28 @@
 
     systemctl enable --now rpcbind nfs-server
 
-## 2. Firewall
+## 2. Install NFS Client
 
-### 2.1 Config
+### 2.1 Install
+
+    dnf -y install nfs-utils
+
+
+### 2.2 Config
+
+    vi /etc/idmapd.conf
+    
+    Domain = qubitsec.com
+
+### 2.3 Mount
+
+    mount -t nfs 10.10.11.14:/home/nfsshare /home/username/solrbackup
+    df -hT
+    df -hT /home/username/solrbackup
+
+## 3. Firewall
+
+### 3.1 Config
 
     firewall-cmd --add-service=nfs
     
@@ -34,11 +53,11 @@
         
     firewall-cmd --runtime-to-permanent
     
-## 3. Useful Links
+## 4. Useful Links
 
     https://www.server-world.info/en/note?os=Rocky_Linux_8&p=nfs&f=1
 
 
-## 4. Example for nfs client config
+## 5. Example for nfs client config
 
 ![nfs_vmware](https://github.com/QubitSecurity/documentation/assets/24949168/06f2608a-bbc0-4dd0-8257-db4a87847fe5)
