@@ -46,6 +46,7 @@
 ### 2.4 Configure AutoFS
 
     dnf -y install autofs
+    
     vi /etc/auto.master
 
     # add to the end
