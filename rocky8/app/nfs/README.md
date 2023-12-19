@@ -43,6 +43,19 @@
     df -hT
     df -hT /home/username/solrbackup
 
+### 2.4 Configure AutoFS
+
+    dnf -y install autofs
+    vi /etc/auto.master
+
+    # add to the end
+    /-    /etc/auto.mount
+    
+    vi /etc/auto.mount
+    /home/username/solrbackup   -fstype=nfs,rw  10.10.11.14:/home/nfsshare
+
+    systemctl enable --now autofs
+
 ## 3. Firewall
 
 ### 3.1 Config
