@@ -1,6 +1,18 @@
 # Repo
 for local
 
+## 0. Clean
+
+### 0.1 Install
+
+    rm -f /var/lib/rpm/__*
+    rpm --rebuilddb -v -v
+    dnf clean all
+    rm -rf /var/cache/dnf
+    
+    dnf makecache
+    dnf -y update
+
 ## 1. Install
 
 ### 1.1 Install
