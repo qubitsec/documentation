@@ -12,14 +12,17 @@ chrony conf
     vi /etc/chrony.conf 
     
     server 172.16.10.250 iburst
+    
     allow 10.10.10.0/23
     allow 192.168.0.0/16
+
+### 1.3 Restart
     
     systemctl enable --now chronyd
 
     systemctl restart chronyd
 
-### 1.3 Testing
+### 1.4 Testing
 
     chronyc sources
     
@@ -27,8 +30,7 @@ chrony conf
     
     ntpstat
     
-
-### 1.4 setting rules to firewalld
+### 1.5 setting rules to firewalld
 
     firewall-cmd --add-service=ntp --permanent
     
