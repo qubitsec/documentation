@@ -9,10 +9,6 @@
 #virsh start 010245-mysql
 #virsh start 010246-mysql
 
-#virsh start 010251-solr-nfs
-
-#virsh start 010252-nfs
-
 virsh start 011020-solr
 virsh start 011021-solr
 
