@@ -13,8 +13,11 @@ chrony conf
     
     server 172.16.10.250 iburst
     allow 10.10.10.0/23
+    allow 192.168.0.0/16
     
     systemctl enable --now chronyd
+
+    systemctl restart chronyd
 
 ### 1.3 Testing
 
