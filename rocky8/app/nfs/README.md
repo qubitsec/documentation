@@ -57,6 +57,8 @@
     vi /etc/auto.mount
     /home/username/solrbackup   -fstype=nfs,rw  10.10.11.14:/home/nfsshare
 
+### 2.4 Restart
+
     systemctl enable --now autofs
 
 ## 3. Firewall
