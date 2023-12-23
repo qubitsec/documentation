@@ -1,12 +1,10 @@
 # nfs
 
-
 ## 1. Install NFS Server
 
 ### 1.1 Install
 
     dnf -y install nfs-utils
-
 
 ### 1.2 Make directory
 
@@ -22,14 +20,18 @@
 
     /home/nfsshare 10.10.10.0/23(rw,no_root_squash)
 
+### 1.4 Restart
+
     systemctl enable --now rpcbind nfs-server
+
+    systemctl restart rpcbind
+    systemctl restart nfs-server
 
 ## 2. Install NFS Client
 
 ### 2.1 Install
 
     dnf -y install nfs-utils
-
 
 ### 2.2 Config
 
