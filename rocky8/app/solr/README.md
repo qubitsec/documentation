@@ -42,31 +42,40 @@ curl -X POST -H 'Content-type:application/json' --data-binary '{
 }' http://localhost:8983/solr/syslog/schema
 ```
 <hr/>
-### 2.2 Add-field-type
-```
+### 2.2 Replace-field
 
 ```
-
-<hr/>
-
-```
-
-```
-
-<hr/>
-
-```
-
+curl -X POST -H 'Content-type:application/json' --data-binary '{
+  "replace-field":{
+     "name":"logMessage",
+     "type":"keyword_analysis",
+     "multiValued":false,
+     "indexed":true,
+     "required":false,
+     "stored":true}
+}' http://localhost:8983/solr/syslog/schema
 ```
 
 <hr/>
 
 ```
-
+a
 ```
 
 <hr/>
 
 ```
+b
+```
 
+<hr/>
+
+```
+c
+```
+
+<hr/>
+
+```
+d
 ```
