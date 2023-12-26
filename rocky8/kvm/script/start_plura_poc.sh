@@ -73,20 +73,57 @@ virsh start 010147-analysis-filtermodsec
 virsh start 010148-analysis-filtermodsec
 virsh start 010149-analysis-filtermodsec
 
+virsh start 010150-analysis-filtermodsec
+virsh start 010151-analysis-filtermodsec
+virsh start 010152-analysis-filtermodsec
+virsh start 010153-analysis-filtermodsec
+virsh start 010154-analysis-filtermodsec
+virsh start 010155-analysis-filtermodsec
+virsh start 010156-analysis-filtermodsec
+virsh start 010157-analysis-filtermodsec
+virsh start 010158-analysis-filtermodsec
+virsh start 010159-analysis-filtermodsec
+
+virsh start 010180-proxy
+virsh start 010181-proxy
+
 virsh start 010200-kafka-web
 virsh start 010201-kafka-web
+
+virsh start 010208-kafka-net
+virsh start 010209-kafka-net
+
 virsh start 010210-kafka-sys
 virsh start 010211-kafka-sys
 
 virsh start 010215-kafka-sys-r
+virsh start 010216-kafka-sys-r
+
+virsh start 010218-zk-kafkasys-r
+virsh start 010219-zk-solr-r
 
 virsh start 010220-upload-all
 virsh start 010221-upload-all
+virsh start 010222-upload-all
+virsh start 010223-upload-all
 
-virsh start 010236-zk
-virsh start 010237-zk
-virsh start 010238-zk
-virsh start 010239-zk
+virsh start 010227-zk-kafkaweb
+virsh start 010228-zk-kafkaweb
+virsh start 010229-zk-kafkaweb
+
+virsh start 010230-zk-kafkasys
+virsh start 010231-zk-kafkasys
+virsh start 010232-zk-kafkasys
+
+virsh start 010233-zk-kafkanet
+virsh start 010234-zk-kafkanet
+virsh start 010235-zk-kafkanet
+
+virsh start 010236-zk-solr
+virsh start 010237-zk-solr
+virsh start 010238-zk-solr
+
+virsh start 010238-zk-solr-r
 
 virsh start 010240-mysql
 virsh start 010241-mysql
