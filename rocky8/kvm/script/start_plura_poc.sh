@@ -56,11 +56,11 @@ virsh start 010121-analysis-main
 virsh start 010122-analysis-main
 virsh start 010123-analysis-main
 
-virsh start 010134-analysis-r
-virsh start 010135-analysis-r
-
 virsh start 010128-analysis-apis
 virsh start 010129-analysis-apis
+
+virsh start 010134-analysis-r
+virsh start 010135-analysis-r
 
 virsh start 010140-analysis-filtermodsec
 virsh start 010141-analysis-filtermodsec
@@ -123,7 +123,7 @@ virsh start 010236-zk-solr
 virsh start 010237-zk-solr
 virsh start 010238-zk-solr
 
-virsh start 010238-zk-solr-r
+virsh start 010239-zk-solr-r
 
 virsh start 010240-mysql
 virsh start 010241-mysql
