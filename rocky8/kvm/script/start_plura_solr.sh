@@ -1,14 +1,5 @@
 #!/usr/bin/env bash
 
-#mysql
-virsh start 010240-mysql                   
-virsh start 010241-mysql                   
-virsh start 010242-mysql                   
-virsh start 010243-mysql                   
-virsh start 010244-mysql                   
-virsh start 010245-mysql
-virsh start 010246-mysql
-
 virsh start 011020-solr-sys
 virsh start 011021-solr-sys
 
@@ -93,7 +84,6 @@ virsh start 011107-solr-etc
 virsh start 011108-solr-etc
 virsh start 011109-solr-etc
 
-
 virsh start 011120-solr-sysd
 virsh start 011121-solr-sysd
 
@@ -112,23 +102,23 @@ virsh start 011141-solr-etcd
 virsh start 011142-solr-etcd
 virsh start 011143-solr-etcd
 
-virsh start 011160-solr-app
-virsh start 011161-solr-app
+virsh start 011160-solr-appd
+virsh start 011161-solr-appd
 
-virsh start 011162-solr-app
-virsh start 011163-solr-app
+virsh start 011162-solr-appd
+virsh start 011163-solr-appd
 
-virsh start 011170-solr-appd
-virsh start 011171-solr-appd
+virsh start 011170-solr
+virsh start 011171-solr
 
 virsh start 011172-solr
 virsh start 011173-solr
 
-virsh start 011180-solr
-virsh start 011181-solr
+virsh start 011180-solr-app
+virsh start 011181-solr-app
 
-virsh start 011182-solr
-virsh start 011183-solr
+virsh start 011182-solr-app
+virsh start 011183-solr-app
 
 virsh start 011184-solr
 virsh start 011185-solr
