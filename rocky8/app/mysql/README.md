@@ -5,7 +5,7 @@
 
 ### 1.1 Install
 
-    dnf install https://repo.mysql.com//mysql80-community-release-el8-9.noarch.rpm
+    dnf install https://repo.mysql.com/mysql80-community-release-el8-9.noarch.rpm
 
     dnf -y install mysql
 
