@@ -6,9 +6,11 @@
 ### 1.1 Install
 
     dnf install https://repo.mysql.com//mysql80-community-release-el8-9.noarch.rpm
-    
+
+    dnf -y install mysql
+
     systemctl enable --now mysqld
-            
+ 
 ### 1.2 Config
 
     mysql_secure_installation
