@@ -1,7 +1,10 @@
 ## 1. Solr
 
+### 1.1 Run
 
+    ~/solr/bin/solr start -cloud
 
+    ~/solr/bin/solr stop
 
 ## 2. Solr
 
