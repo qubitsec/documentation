@@ -31,7 +31,7 @@ systemctl start rpcbind
 ```
 vi ./solr-data/weblog_shard1_replica_n482/core.properties
 
-dataDir=/home/sysadmin/solrbackup
+dataDir=/home/username/solrbackup
 
 ```
 ### 2.3 Run
