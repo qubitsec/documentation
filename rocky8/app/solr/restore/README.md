@@ -4,7 +4,7 @@
 
     ~/solr/bin/solr stop
 
-### 1.2 Needs packages
+### 1.2 Need packages
 
 ```
 dnf -y install rsync nfs-utils
