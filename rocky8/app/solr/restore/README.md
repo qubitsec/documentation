@@ -72,8 +72,3 @@ dataDir=/home/sysadmin/solrbackup
 ## X. References
 
 #### x.1 https://www.server-world.info/en/note?os=Rocky_Linux_8&p=nfs&f=2
-
-
-```
-d
-```
