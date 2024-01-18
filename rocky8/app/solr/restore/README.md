@@ -1,20 +1,24 @@
 ## 1. Solr
 
-### 1.1 Run and Stop
-
-    ~/solr/bin/solr start -cloud
+### 1.1 Stop
 
     ~/solr/bin/solr stop
 
+### 1.2 Needs packages
+
+```
+dnf -y install rsync nfs-utils
+
+vi /etc/idmapd.conf
+
+Domain = qubitsec.internal
+
+systemctl start rpcbind
+
+```
 ## 2. Directory mount
 
-### 2.1 
-
-    ~/solr/bin/solr start -cloud
-
-    ~/solr/bin/solr stop
-
-### 2.2 Make NFS Disk Mount
+### 2.1 Make NFS Disk Mount
 
     mkdir solrbackup
 
@@ -22,15 +26,25 @@
 
     sudo chown username.username solrbackup/
 
-### 2.3 Index copy from nfs mount to local
+### 2.2 Change directory for Solr index from local to nfs mount directory
+
+```
+vi ./solr-data/weblog_shard1_replica_n482/core.properties
+
+dataDir=/home/sysadmin/solrbackup
+
+```
+### 2.3 Run
+
+    ~/solr/bin/solr start -cloud
+
+## 3. Revoke
+
+### 3.1 Index copy from nfs mount to local
 
     rsync -av /home/sysadmin/solrbackup/ /home/username/solr-data/weblog_shard1_replica_n482/data
 
-## 3. Umount
-
-### 3.1 Add-field-type
-
-### 2.3 Index copy from nfs mount to local
+### 3.2 
 
     rsync -av /home/sysadmin/solrbackup/ /home/username/solr-data/weblog_shard1_replica_n482/data
 
@@ -53,146 +67,12 @@
     sudo systemctl stop rpcbind
 
 
-### 4.1 Count files
-
-```
-curl -X POST -H 'Content-type:application/json' --data-binary '{
-  "add-field-type": {
-    "name": "keyword_analysis",
-    "class": "solr.TextField",
-    "positionIncrementGap": "100",
-    "indexAnalyzer": {
-      "tokenizer": {
-        "class": "solr.KeywordTokenizerFactory"
-      },
-      "filters": [
-        {
-          "class": "solr.LowerCaseFilterFactory"
-        },
-        {
-          "class": "solr.EdgeNGramFilterFactory",
-          "maxGramSize": "32",
-          "minGramSize": "2"
-        }
-      ]
-    },
-    "queryAnalyzer": {
-      "tokenizer": {
-        "class": "solr.KeywordTokenizerFactory"
-      },
-      "filters": [
-        {
-          "class": "solr.LowerCaseFilterFactory"
-        }
-      ]
-    }
-  }
-}' http://localhost:8983/solr/syslog/schema
-```
-<hr/>
-### 2.2 Replace-field
-
-```
-curl -X POST -H 'Content-type:application/json' --data-binary '{
-  "replace-field":{
-     "name":"logMessage",
-     "type":"keyword_analysis",
-     "multiValued":false,
-     "indexed":true,
-     "required":false,
-     "stored":true}
-}' http://localhost:8983/solr/syslog/schema
-```
-
 <hr/>
 
-```
-{
-  "replace-field-type": {
-    "name": "msg_analysis",
-    "class": "solr.TextField",
-    "positionIncrementGap": "100",
-    "indexAnalyzer": {
-      "charFilters": [
-          {
-            "class": "solr.PatternReplaceCharFilterFactory",
-            "pattern": "\"",
-            "replacement": ""
-          },
-          {
-            "class": "solr.PatternReplaceCharFilterFactory",
-            "pattern": "'",
-            "replacement": ""
-          },
-          {
-            "class": "solr.PatternReplaceCharFilterFactory",
-            "pattern": "msg=audit\\([^)]+\\):",
-            "replacement": ""
-          },
-          {
-            "class": "solr.PatternReplaceCharFilterFactory",
-            "pattern": "msg=",
-            "replacement": ""
-          }
-      ],
-      "tokenizer": {
-        "class": "solr.StandardTokenizerFactory"
-      },
-      "filters": [
-        {
-          "class": "solr.LowerCaseFilterFactory"
-        },
-        {
-          "class": "solr.EdgeNGramFilterFactory",
-          "maxGramSize": "20",
-          "minGramSize": "2"
-        },
-        {
-          "class": "solr.StopFilterFactory",
-          "ignoreCase": "true",
-          "words": "stopwords.txt"
-        },
-        {
-          "class": "solr.SynonymGraphFilterFactory",
-          "synonyms": "synonyms.txt",
-          "ignoreCase": "true",
-          "expand": "true"
-        }
-      ]
-    },
-    "queryAnalyzer": {
-      "tokenizer": {
-        "class": "solr.KeywordTokenizerFactory"
-      },
-      "filters": [
-        {
-          "class": "solr.LowerCaseFilterFactory"
-        },
-        {
-          "class": "solr.SynonymGraphFilterFactory",
-          "synonyms": "synonyms.txt",
-          "ignoreCase": "true",
-          "expand": "true"
-        }
-      ]
-    }
-  }
-}
-```
+## X. References
 
-<hr/>
+#### x.1 https://www.server-world.info/en/note?os=Rocky_Linux_8&p=nfs&f=2
 
-```
-curl -X POST -H "Content-type: application/json" --data-binary @schema_syslog_msg.json http://localhost:8983/solr/syslog/schema
-```
-
-<hr/>
-
-```
-c
-```
-
-<hr/>
 
 ```
 d
