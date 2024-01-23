@@ -65,6 +65,7 @@
 
     getenforce
     ps -eZ | grep squid
+    semanage port -l | grep -w -i squid_port_t
 
 ### 3.2 setting selinx
     semanage port -a -t squid_port_t -p tcp 58080
