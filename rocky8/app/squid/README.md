@@ -64,6 +64,9 @@
 ### 3.1 check selinx permission
 
     getenforce
+    
+    grep squid /var/log/audit/audit.log | audit2why
+    
     ps -eZ | grep squid
     semanage port -l | grep -w -i squid_port_t
 
