@@ -88,6 +88,8 @@
     systemctl restart squid
     systemctl status squid
 
+    netstat -tunlp
+
 ## X. Useful Links
 
     https://www.server-world.info/en/note?os=Rocky_Linux_8&p=squid&f=1
