@@ -59,13 +59,30 @@
 
     chcon -t squid_log_t /var/log/plura/weblog.log
 
-### 2.2 add info
+## 3. Selinux
+
+### 3.1 check selinx permission
+
+    getenforce
+    ps -eZ | grep squid
+
+### 3.2 setting selinx
+    semanage port -a -t squid_port_t -p tcp 58080
+    semanage fcontext -a -t squid_log_t "/var/log/plura/weblog.log"
+    restorecon -Rv /var/log/plura/weblog.log
+
+### 3.3 setting selinx with regexpress
+    semanage fcontext -a -t squid_log_t "/var/log/plura(/.*)?"
+
+## 4. PLURA-SQUID
+
+### 4.1 add info
 
     echo "ModPlura-squid" > /etc/modplura
     echo "0.0.1" >> /etc/modplura
     touch /etc/.modplura
 
-### 2.3 restart
+### 4.2 restart
 
     systemctl restart squid
     systemctl status squid
@@ -73,3 +90,4 @@
 ## X. Useful Links
 
     https://www.server-world.info/en/note?os=Rocky_Linux_8&p=squid&f=1
+    https://jfearn.fedorapeople.org/fdocs/en-US/Fedora/20/html/Security_Guide/sect-Managing_Confined_Services-Squid_Caching_Proxy.html
