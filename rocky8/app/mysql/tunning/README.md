@@ -12,6 +12,8 @@ GROUP BY table_schema;
 
 ### 1.2 Check table size
 
+#### change your_database_name
+
 ```
 SELECT
     TABLE_NAME AS `Table`,
