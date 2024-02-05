@@ -40,11 +40,15 @@
     
     firewall-cmd --runtime-to-permanent
 
-### 1.5 Check config
+### 1.5 Check the configuration file
 
     squid -k parse
 
-### 1.6 Check process
+### 1.6 Check the configuration file in a specific directory
+
+    squid -f /etc/squid/history/squid.conf
+
+### 1.7 Check process
 
     netstat -tnlp
 
