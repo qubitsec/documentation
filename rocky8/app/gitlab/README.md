@@ -1,14 +1,14 @@
-## 1. Solr
+## 1. Gitlab
 
 ### 1.1 Run
 
-    ~/solr/bin/solr start -cloud
+    ~
 
-    ~/solr/bin/solr stop
+    ~
 
-## 2. Solr
+## 2. Gitlab
 
-### 2.1 Add-field-type
+### 2.1 SMTP
 
 ```
 gitlab_rails['smtp_enable'] = true
