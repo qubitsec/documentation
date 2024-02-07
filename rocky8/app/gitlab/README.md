@@ -127,6 +127,9 @@ c
 
 <hr/>
 
+### References
+
 ```
-d
+https://docs.gitlab.com/omnibus/settings/smtp.html
+
 ```
