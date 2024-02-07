@@ -26,15 +26,10 @@ gitlab_rails['smtp_pool'] = false
 ### 2.2 Replace-field
 
 ```
-curl -X POST -H 'Content-type:application/json' --data-binary '{
-  "replace-field":{
-     "name":"logMessage",
-     "type":"keyword_analysis",
-     "multiValued":false,
-     "indexed":true,
-     "required":false,
-     "stored":true}
-}' http://localhost:8983/solr/syslog/schema
+export http_proxy="http://10.100.10.174:3128"
+export https_proxy="http://10.100.10.174:3128"
+export no_proxy="localhost,127.0.0.1"
+
 ```
 
 <hr/>
