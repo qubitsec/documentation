@@ -17,9 +17,9 @@
     Domain = qubitsec.com
 ```
 ```
-    vi /etc/exports
+vi /etc/exports
 
-    /home/nfsshare 10.10.10.0/23(rw,no_root_squash)
+/home/nfsshare 10.10.10.0/23(rw,no_root_squash)
 ```
 ### 1.4 Restart
 
@@ -42,11 +42,11 @@
 
 ### 2.3 Mount
 ```
-    mount -t nfs 10.10.11.14:/home/nfsshare /home/username/solrbackup
+mount -t nfs 10.10.11.14:/home/nfsshare /home/username/solrbackup
 ```
 ```
-    df -hT
-    df -hT /home/username/solrbackup
+df -hT
+df -hT /home/username/solrbackup
 ```
 ### 2.3 Mount
     umount /home/username/solrbackup
@@ -56,14 +56,15 @@
     dnf -y install autofs
 ```
 ```    
-    vi /etc/auto.master
+vi /etc/auto.master
 
-    # add to the end
-    /-    /etc/auto.mount
+# add to the end
+/-    /etc/auto.mount
 ```
 ```    
-    vi /etc/auto.mount
-    /home/username/solrbackup   -fstype=nfs,rw  10.10.11.14:/home/nfsshare
+vi /etc/auto.mount
+
+/home/username/solrbackup   -fstype=nfs,rw  10.10.11.14:/home/nfsshare
 ```
 
 ### 2.4 Restart
@@ -74,11 +75,11 @@
 
 ### 3.1 Config
 ```
-    firewall-cmd --add-service=nfs
+firewall-cmd --add-service=nfs
     
-    firewall-cmd --add-service={nfs3,mountd,rpc-bind}
+firewall-cmd --add-service={nfs3,mountd,rpc-bind}
         
-    firewall-cmd --runtime-to-permanent
+firewall-cmd --runtime-to-permanent
 ```    
 ## 4. Useful Links
 
