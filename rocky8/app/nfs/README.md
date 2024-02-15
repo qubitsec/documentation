@@ -11,15 +11,16 @@
     mkdir -p /home/nfsshare
 
 ### 1.3 Config
-
+```
     vi /etc/idmapd.conf
     
     Domain = qubitsec.com
-
+```
+```
     vi /etc/exports
 
     /home/nfsshare 10.10.10.0/23(rw,no_root_squash)
-
+```
 ### 1.4 Restart
 
     systemctl enable --now rpcbind nfs-server
@@ -45,8 +46,11 @@
     df -hT
     df -hT /home/username/solrbackup
 
-### 2.4 Configure AutoFS
+### 2.3 Mount
+    umount /home/username/solrbackup
 
+### 2.4 Configure AutoFS
+```
     dnf -y install autofs
     
     vi /etc/auto.master
@@ -56,6 +60,7 @@
     
     vi /etc/auto.mount
     /home/username/solrbackup   -fstype=nfs,rw  10.10.11.14:/home/nfsshare
+```
 
 ### 2.4 Restart
 
