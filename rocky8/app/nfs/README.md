@@ -53,7 +53,7 @@ df -hT /home/username/solrbackup
 
 ### 2.4 Configure AutoFS
 ```
-    dnf -y install autofs
+dnf -y install autofs
 ```
 ```    
 vi /etc/auto.master
