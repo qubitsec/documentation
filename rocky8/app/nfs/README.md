@@ -12,9 +12,9 @@
 
 ### 1.3 Config
 ```
-    vi /etc/idmapd.conf
+vi /etc/idmapd.conf
     
-    Domain = qubitsec.com
+Domain = qubitsec.com
 ```
 ```
 vi /etc/exports
