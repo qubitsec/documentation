@@ -41,23 +41,27 @@
     Domain = qubitsec.com
 
 ### 2.3 Mount
-
+```
     mount -t nfs 10.10.11.14:/home/nfsshare /home/username/solrbackup
+```
+```
     df -hT
     df -hT /home/username/solrbackup
-
+```
 ### 2.3 Mount
     umount /home/username/solrbackup
 
 ### 2.4 Configure AutoFS
 ```
     dnf -y install autofs
-    
+```
+```    
     vi /etc/auto.master
 
     # add to the end
     /-    /etc/auto.mount
-    
+```
+```    
     vi /etc/auto.mount
     /home/username/solrbackup   -fstype=nfs,rw  10.10.11.14:/home/nfsshare
 ```
@@ -69,13 +73,13 @@
 ## 3. Firewall
 
 ### 3.1 Config
-
+```
     firewall-cmd --add-service=nfs
     
     firewall-cmd --add-service={nfs3,mountd,rpc-bind}
         
     firewall-cmd --runtime-to-permanent
-    
+```    
 ## 4. Useful Links
 
     https://www.server-world.info/en/note?os=Rocky_Linux_8&p=nfs&f=1
