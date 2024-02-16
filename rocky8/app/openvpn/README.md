@@ -136,7 +136,7 @@
 
 ### 4.3 Revoke and restart
 
-    ./easyrsa revoke
+    ./easyrsa revoke <username>
 
     ./easyrsa gen-crl
 
