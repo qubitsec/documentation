@@ -56,8 +56,10 @@ rocky8
 ### 1.0 packages
 
     dnf -y install nfs-utils rsync
+
+    dnf -y install wget net-tools telnet bind-utils lsof nc tcpdump
     
-    dnf -y install wget net-tools telnet bind-utils zip unzip tar tcpdump lsof nc chrony
+    dnf -y install zip unzip tar
 
     dnf -y install epel-release
 
