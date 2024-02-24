@@ -1,3 +1,4 @@
+dnf localinstall \
 adwaita-cursor-theme-3.28.0-3.el8.noarch.rpm \
 adwaita-icon-theme-3.28.0-3.el8.noarch.rpm \
 alsa-lib-1.2.9-1.el8.x86_64.rpm \
