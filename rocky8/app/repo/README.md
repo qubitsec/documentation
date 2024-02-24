@@ -174,7 +174,7 @@ createrepo /var/www/repos/centos/7/extras/x86_64/
 createrepo /var/www/repos/centos/7/centosplus/x86_64/
 
 reposync -p /var/www/repos/ --repo=epel --download-metadata
-createrepo --update /var/www/repos/epel/
+createrepo /var/www/repos/epel/
 
 ```
 
