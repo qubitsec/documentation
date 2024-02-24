@@ -153,7 +153,7 @@ createrepo --update /var/www/repos/rocky/epel/8/Everything/x86_64/
 
 <hr/>
 
-## 6. YUM for CentOS 7
+## 6. yum for CentOS 7
 
 ### 6.1 Initial installation
 ```
