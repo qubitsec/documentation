@@ -137,36 +137,41 @@ for local
 
 ## 4. YUM for CentOS 7
 
-    mkdir -p /var/www/repos/centos/7/os/x86_64/
-    mkdir -p /var/www/repos/centos/7/updates/x86_64/
-    mkdir -p /var/www/repos/centos/7/extras/x86_64/
-    mkdir -p /var/www/repos/centos/7/centosplus/x86_64/
-    chmod -R 755 /var/www/repos
+### Initial installation
+```
+mkdir -p /var/www/repos/centos/7/os/x86_64/
+mkdir -p /var/www/repos/centos/7/updates/x86_64/
+mkdir -p /var/www/repos/centos/7/extras/x86_64/
+mkdir -p /var/www/repos/centos/7/centosplus/x86_64/
+chmod -R 755 /var/www/repos
 
-    reposync -p /var/www/repos/centos/7/os/x86_64/ --repo=base --download-metadata
-    reposync -p /var/www/repos/centos/7/updates/x86_64/ --repo=updates --download-metadata
-    reposync -p /var/www/repos/centos/7/extras/x86_64/ --repo=extras --download-metadata
-    reposync -p /var/www/repos/centos/7/centosplus/x86_64/ --repo=centosplus --download-metadata
+reposync -p /var/www/repos/centos/7/os/x86_64/ --repo=base --download-metadata
+reposync -p /var/www/repos/centos/7/updates/x86_64/ --repo=updates --download-metadata
+reposync -p /var/www/repos/centos/7/extras/x86_64/ --repo=extras --download-metadata
+reposync -p /var/www/repos/centos/7/centosplus/x86_64/ --repo=centosplus --download-metadata
 
-    createrepo /var/www/repos/centos/7/os/x86_64/
-    createrepo /var/www/repos/centos/7/updates/x86_64/
-    createrepo /var/www/repos/centos/7/extras/x86_64/
-    createrepo /var/www/repos/centos/7/centosplus/x86_64/
+createrepo /var/www/repos/centos/7/os/x86_64/
+createrepo /var/www/repos/centos/7/updates/x86_64/
+createrepo /var/www/repos/centos/7/extras/x86_64/
+createrepo /var/www/repos/centos/7/centosplus/x86_64/
 
-    reposync -p /var/www/repos/centos/7/os/x86_64/ --newest-only --repo=base --download-metadata
-    reposync -p /var/www/repos/centos/7/updates/x86_64/ --newest-only --repo=updates --download-metadata
-    reposync -p /var/www/repos/centos/7/extras/x86_64/ --newest-only --repo=extras --download-metadata
-    reposync -p /var/www/repos/centos/7/centosplus/x86_64/ --newest-only --repo=centosplus --download-metadata
+reposync -p /var/www/repos/ --repo=epel --download-metadata
+createrepo /var/www/repos/epel/
 
-    createrepo --update /var/www/repos/centos/7/os/x86_64/
-    createrepo --update /var/www/repos/centos/7/updates/x86_64/
-    createrepo --update /var/www/repos/centos/7/extras/x86_64/
-    createrepo --update /var/www/repos/centos/7/centosplus/x86_64/
-    
-    reposync -p /var/www/repos/ --repo=epel --download-metadata
+```
 
-    createrepo /var/www/repos/epel/
+### Periodic updates
+```
+reposync -p /var/www/repos/centos/7/os/x86_64/ --newest-only --repo=base --download-metadata
+reposync -p /var/www/repos/centos/7/updates/x86_64/ --newest-only --repo=updates --download-metadata
+reposync -p /var/www/repos/centos/7/extras/x86_64/ --newest-only --repo=extras --download-metadata
+reposync -p /var/www/repos/centos/7/centosplus/x86_64/ --newest-only --repo=centosplus --download-metadata
 
-    reposync -p /var/www/repos/ --newest-only --repo=epel --download-metadata
-    
-    createrepo --update /var/www/repos/epel/
+createrepo --update /var/www/repos/centos/7/os/x86_64/
+createrepo --update /var/www/repos/centos/7/updates/x86_64/
+createrepo --update /var/www/repos/centos/7/extras/x86_64/
+createrepo --update /var/www/repos/centos/7/centosplus/x86_64/
+
+reposync -p /var/www/repos/ --newest-only --repo=epel --download-metadata
+createrepo --update /var/www/repos/epel/
+```
