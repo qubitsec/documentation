@@ -135,9 +135,27 @@ for local
 
 <hr/>
 
-## 4. YUM for CentOS 7
+## 5. dnf for rocky linux 8
 
-### Initial installation
+### Periodic updates
+```
+reposync -p /var/www/repos/rocky/8/x86_64/os/ --newest-only --repo=baseos --download-metadata
+reposync -p /var/www/repos/rocky/8/x86_64/os/ --newest-only --repo=appstream --download-metadata
+reposync -p /var/www/repos/rocky/8/x86_64/os/ --newest-only --repo=extras --download-metadata
+
+createrepo --update /var/www/repos/rocky/8/x86_64/os/appstream/
+createrepo --update /var/www/repos/rocky/8/x86_64/os/baseos/
+createrepo --update /var/www/repos/rocky/8/x86_64/os/extras/
+
+reposync -p /var/www/repos/rocky/epel/8/Everything/x86_64/ --newest-only --repo=epel --download-metadata
+createrepo --update /var/www/repos/rocky/epel/8/Everything/x86_64/
+```
+
+<hr/>
+
+## 6. YUM for CentOS 7
+
+### 6.1 Initial installation
 ```
 mkdir -p /var/www/repos/centos/7/os/x86_64/
 mkdir -p /var/www/repos/centos/7/updates/x86_64/
@@ -160,7 +178,7 @@ createrepo /var/www/repos/epel/
 
 ```
 
-### Periodic updates
+### 6.2 Periodic updates
 ```
 reposync -p /var/www/repos/centos/7/os/x86_64/ --newest-only --repo=base --download-metadata
 reposync -p /var/www/repos/centos/7/updates/x86_64/ --newest-only --repo=updates --download-metadata
