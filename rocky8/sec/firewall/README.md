@@ -35,6 +35,7 @@
     
     firewall-cmd --reload
 
+<hr/>
 
 ## 2. remove services
 
@@ -47,6 +48,8 @@ firewall-cmd --remove-service=cockpit --permanent
 
 firewall-cmd --reload
 ```
+
+<hr/>
 
 ## 3. Rich rules
 
