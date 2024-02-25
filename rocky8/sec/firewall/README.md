@@ -42,9 +42,9 @@
 ### 2.1 remove
 
 ```
-firewall-cmd --remove-service=ssh --permanent
-firewall-cmd --remove-service=dhcpv6-client --permanent
-firewall-cmd --remove-service=cockpit --permanent
+firewall-cmd --zone=public --permanent --remove-service=ssh
+firewall-cmd --zone=public --permanent --remove-service=dhcpv6-client
+firewall-cmd --zone=public --permanent --remove-service=cockpit
 
 firewall-cmd --reload
 ```
