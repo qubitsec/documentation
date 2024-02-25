@@ -35,23 +35,36 @@
     
     firewall-cmd --reload
 
-## 2. Rich rules
 
-### 2.3.1 add rich rule
+## 2. remove services
+
+### 2.1 remove
+
+```
+firewall-cmd --remove-service=ssh --permanent
+firewall-cmd --remove-service=dhcpv6-client --permanent
+firewall-cmd --remove-service=cockpit --permanent
+
+firewall-cmd --reload
+```
+
+## 3. Rich rules
+
+### 3.3.1 add rich rule
 
     firewall-cmd --permanent --zone=public --add-rich-rule='rule family="ipv4" source address="1.1.1.1/32" port protocol="tcp" port="3389" accept'
     
     firewall-cmd --reload
 
 
-### 2.3.1 remove rich rule
+### 3.3.1 remove rich rule
 
     firewall-cmd --permanent --zone=public --remove-rich-rule='rule family="ipv4" source address="1.1.1.1/32" port protocol="tcp" port="3389" accept'
     
     firewall-cmd --reload
 
 
-### 2.4 specific trusted zone
+### 3.4 specific trusted zone
 
     firewall-cmd --zone=trusted --list-all
     
@@ -64,19 +77,19 @@
     
     firewall-cmd --reload
 
-### 2.5 block
+### 3.5 block
 
     firewall-cmd --zone=block --permanent --add-rich-rule='rule family="ipv4" source address="10.10.10.0/23" accept'
 
     firewall-cmd --reload
 
-### 2.6 Rich rules
+### 3.6 Rich rules
 
     firewall-cmd --zone=trusted --permanent --add-rich-rule='rule family="ipv4" source address="10.10.10.0/23" accept'
     
     firewall-cmd --reload
 
-### 3.1 Rich rules
+### 9.1 Rich rules
 
     firewall-cmd --zone=trusted --permanent --add-rich-rule='rule family="ipv4" source address="10.10.10.0/23" accept'
     
