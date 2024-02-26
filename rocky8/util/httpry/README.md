@@ -1,18 +1,18 @@
 # 1. httpry
 
-## 1.1 Install
+## 1.1 install
 
 ```
 dnf -y install httpry
 ```
 
-## 1.2 Print
+## 1.2 run
 
 ```
 httpy -i ens192
 ```
 
-## 1.3 Options
+## 1.3 options
 
 - `i` 또는 `--interface`: 패킷을 캡처할 네트워크 인터페이스를 지정합니다. 예: `-i eth0`
 - `b` 또는 `--db`: 지정된 데이터베이스 파일에 HTTP 데이터를 기록합니다.
