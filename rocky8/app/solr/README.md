@@ -1,5 +1,16 @@
 ## 1. Solr
 
+### 1.0 Config
+
+```
+vi /etc/security/limits.conf
+
+sysadmin               soft    nofile  65536
+sysadmin               hard    nofile  65536
+sysadmin               soft    nproc   unlimited
+sysadmin               hard    nproc   unlimited
+```
+
 ### 1.1 Run
 
     ~/solr/bin/solr start -cloud
