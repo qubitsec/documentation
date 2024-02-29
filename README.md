@@ -27,7 +27,7 @@
 ## X. Download
 
 - http://mirror.navercorp.com/rocky/
-
+- https://mirror.navercorp.com/rocky/8.9/isos/x86_64/
 
 ## X. Useful Links
 
