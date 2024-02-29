@@ -5,10 +5,10 @@
 ```
 vi /etc/security/limits.conf
 
-sysadmin               soft    nofile  65536
-sysadmin               hard    nofile  65536
-sysadmin               soft    nproc   unlimited
-sysadmin               hard    nproc   unlimited
+username              soft    nofile  65536
+username              hard    nofile  65536
+username              soft    nproc   unlimited
+username              hard    nproc   unlimited
 ```
 
 ### 1.1 Run
