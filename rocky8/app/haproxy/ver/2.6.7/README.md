@@ -5,7 +5,7 @@ haproxy-2.6.7.tar.gz
 
 ### 1.1 lua
 
-    curl -R -O http://www.lua.org/ftp/lua-5.4.4.tar.gz
+    curl -R -O https://www.lua.org/ftp/lua-5.4.4.tar.gz
 
 ### 1.2 haproxy
 
