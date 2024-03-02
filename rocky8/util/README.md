@@ -27,6 +27,12 @@
 
     nc -zv -u 192.168.56.10 5514
 
+### 1.5 Check Disk : SSD or HDD
+
+    cat /sys/block/sda/queue/rotational
+
+- SSD: 0, HDD: 1
+
 ## 2. Hostname
 
 ### 2.1 Set System Hostname
