@@ -59,6 +59,14 @@
 
     ls -l | awk '{ print $9 }'
 
+## 5. Disk performance
+
+### 5.1 SSD
+
+    dnf -y install fio
+
+    fio --name=rand-write --ioengine=libaio --iodepth=32 --rw=randwrite --bs=4k --direct=1 --size=1G --numjobs=1 --runtime=60 --group_reporting
+
 ## X. Useful Links
 
 - https://www.tecmint.com/check-remote-port-in-linux/
