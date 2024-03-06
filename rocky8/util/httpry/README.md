@@ -9,7 +9,7 @@ dnf -y install httpry
 ## 1.2 run
 
 ```
-httpy -i ens192
+httpry -i ens192
 ```
 
 ## 1.3 options
