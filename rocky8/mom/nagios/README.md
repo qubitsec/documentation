@@ -116,12 +116,29 @@ define service{
 }
 ```
 
-<hr/>
-
 ### 2.3 Restart
 
 ```
 systemctl restart nagios
+```
+
+<hr/>
+
+### 3.1 Change main.php to services
+
+```
+cd /usr/share/nagios/html/
+
+cp index.php index.php.bak
+```
+
+```
+vi index.php
+
+<?php
+// Allow specifying main window URL for permalinks, etc.
+//$url = 'main.php';
+$url = '/nagios/cgi-bin/status.cgi?host=all';
 ```
 
 ## X. Useful Links
