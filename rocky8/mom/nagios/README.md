@@ -80,7 +80,7 @@ define service{
     use                     check_url-service
     host_name               www.plura.io
     service_description     HTTPS Check
-    check_command           check_http!-S -p 443 -C 30
+    check_command           check_http!-S -p 443 -C 30 ; Certificate check expire after 30 days
     notifications_enabled   1
 }
 ```
@@ -107,7 +107,7 @@ define service{
     use                     check_url-service
     host_name               uploadweb.plura.io
     service_description     HTTPS Check
-    check_command           check_http!-S -p 443 -u /PATH -C 400 ; Certificate check expire after 30 days
+    check_command           check_http!-S -p 443 -u /PATH -C 400 ; Certificate check expire after 400 days
     notifications_enabled   1
 }
 ```
