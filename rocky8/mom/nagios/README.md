@@ -25,7 +25,7 @@ define hostgroup {
 } 
 ```
 
-## 1.3 Create for services
+### 1.3 Create for services
 
 ```
 vi /etc/nagios/objects/services.cfg
