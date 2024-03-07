@@ -6,8 +6,8 @@
 vi /etc/nagios/nagios.cfg
 
 # new
-cfg_file=/etc/nagios/objects/services.cfg
 cfg_file=/etc/nagios/objects/hostgroups.cfg
+cfg_file=/etc/nagios/objects/services.cfg
 
 # uncomment
 cfg_dir=/etc/nagios/servers
