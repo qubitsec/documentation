@@ -62,6 +62,10 @@ define service{
 ### 2.1 Register for http_check
 
 ```
+mkdir /etc/nagios/servers/
+```
+
+```
 vi /etc/nagios/servers/www.plura.io.cfg
 
 define host{
