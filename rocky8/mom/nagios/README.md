@@ -124,7 +124,64 @@ systemctl restart nagios
 
 <hr/>
 
-### 3.1 Change main.php to services
+## 3. Mail
+
+### 3.1 Config
+
+```
+vi /etc/nagios/objects/contacts.cfg
+
+# new
+define contact {
+
+    contact_name            nagiosadmin             ; Short name of user
+    use                     generic-contact         ; Inherit default values from generic-contact template (defined above)
+    alias                   Nagios Admin            ; Full name of user
+    email                   youremail@plura.kr      ; <<***** CHANGE THIS TO YOUR EMAIL ADDRESS ******
+}
+```
+
+### 3.2
+
+```
+vi /etc/nagios/objects/commands.cfg
+
+# chage for add Subject
+define command {
+
+    command_name    notify-host-by-email
+
+#    command_line    /usr/bin/printf "%b" "***** Nagios *****\n\nNotification Type: $NOTIFICATIONTYPE$\nHost: $HOSTNAME$\nState: $HOSTSTATE$\nAddress: $HOSTADDRESS$\nInfo: $HOSTOUTPUT$\n\nDate/Time: $LONGDATETIME$\n" | /usr/bin/mail -s "** $NOTIFICATIONTYPE$ Host Alert: $HOSTNAME$ is $HOSTSTATE$ **" $CONTACTEMAIL$
+
+     command_line    /usr/bin/printf "%b" "Subject: [Nagios] Alert for $HOSTNAME$ is $HOSTSTATE$\n\n***** Nagios *****\n\nNotification Type: $NOTIFICATIONTYPE$\nHost: $HOSTNAME$\nState: $HOSTSTATE$\nAddress: $HOSTADDRESS$\nInfo: $HOSTOUTPUT$\n\nDate/Time: $LONGDATETIME$\n" | /usr/bin/msmtp --account=nagios -t $CONTACTEMAIL$
+}
+```
+
+### 3.3 Config for remote smtp with 
+
+```
+vi /etc/msmtprc 
+
+# No authentication
+defaults
+auth           off
+tls            off
+tls_starttls   off
+tls_trust_file /etc/ssl/certs/ca-certificates.crt
+
+account        nagios
+host           10.100.10.175
+port           25
+from           youremail@plura.kr
+user           yourid
+password       yourpassword
+
+account default : nagios
+```
+
+<hr/>
+
+### 4.1 Change main.php to services
 
 ```
 cd /usr/share/nagios/html/
