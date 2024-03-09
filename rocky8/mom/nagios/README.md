@@ -57,7 +57,7 @@ define service{
         }
 ```
 
-## 2. Register
+## 2. Register new url
 
 ### 2.1 Register for http_check
 
@@ -85,6 +85,7 @@ define service{
     host_name               www.plura.io
     service_description     HTTPS Check
     check_command           check_http!-S -p 443 -C 30 ; Certificate check expire after 30 days
+    max_check_attempts      5
     notifications_enabled   1
 }
 ```
@@ -112,6 +113,7 @@ define service{
     host_name               uploadweb.plura.io
     service_description     HTTPS Check
     check_command           check_http!-S -p 443 -u /PATH -C 400 ; Certificate check expire after 400 days
+    max_check_attempts      5
     notifications_enabled   1
 }
 ```
