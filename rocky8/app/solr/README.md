@@ -20,7 +20,14 @@ username              hard    nproc   unlimited
 <hr/>
 
 ```
-c
+vi ~/solr/bin/solr.in.sh
+
+#SOLR_HEAP="512m"
+SOLR_HEAP="16g"
+
+# Add to end
+# Zookeeper config
+. /home/$("whoami")/solr_zookeeper/*.conf
 ```
 
 <hr/>
