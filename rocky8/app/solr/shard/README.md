@@ -29,7 +29,12 @@ http://10.10.11.20:8983/solr/admin/collections?action=CREATESHARD&shard=shard5&c
 ```
 
 <hr/>
+### 1.3 resmonlog
 
 ```
-d
+http://10.10.63.160:8983/solr/admin/collections?action=CREATESHARD&shard=shard4&collection=resmonlog&0createNodeSet=10.10.63.170:8983_solr
+
+http://10.10.63.160:8983/solr/admin/collections?action=CREATESHARD&shard=shard4&collection=resmonlog&0createNodeSet=10.10.63.172:8983_solr
+
+http://10.10.63.160:8983/solr/admin/collections?action=CREATESHARD&shard=shard5&collection=resmonlog&createNodeSet=10.10.63.174:8983_solr
 ```
