@@ -17,7 +17,6 @@ http://10.10.11.40:8983/solr/admin/collections?action=CREATESHARD&shard=shard5&c
 
 ### 1.2 weblog
 
-
 ```
 http://10.10.11.20:8983/solr/admin/collections?action=CREATESHARD&shard=shard3&collection=syslog&createNodeSet=10.10.11.24:8983_solr
 
@@ -29,6 +28,7 @@ http://10.10.11.20:8983/solr/admin/collections?action=CREATESHARD&shard=shard5&c
 ```
 
 <hr/>
+
 ### 1.3 resmonlog
 
 ```
