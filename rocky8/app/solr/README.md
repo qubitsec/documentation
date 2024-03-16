@@ -11,12 +11,13 @@ username              soft    nproc   unlimited
 username              hard    nproc   unlimited
 ```
 
-### 1.1 Run
-
-    ~/solr/bin/solr start -cloud
-
-    ~/solr/bin/solr stop
-
+### 1.1 Run and Stop
+```
+~/solr/bin/solr start -cloud
+```
+```
+~/solr/bin/solr stop
+```
 <hr/>
 
 ```
