@@ -15,6 +15,23 @@ OPEN JDK
     
     java -version
 
+### 1.3 Install JDK 17
+````
+dnf -y install java-17-openjdk java-17-openjdk-devel
+````
+````
+cat > /etc/profile.d/java.sh <<'EOF'
+export JAVA_HOME=$(dirname $(dirname $(readlink $(readlink $(which java)))))
+export PATH=$PATH:$JAVA_HOME/bin
+EOF
+````
+
+````
+source /etc/profile.d/java.sh
+
+java -version
+````
+
 ### 1.3 Alternative
 
     alternatives --config java
