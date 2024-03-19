@@ -1,6 +1,18 @@
 ## 1. Solr
 
-### 1.0 Config
+
+### 1.1 Run and Stop
+```
+chmod a+x /usr/lib64/nagios/plugins/check_solr_status.sh
+```
+```
+nagios -v /etc/nagios/nagios.cfg
+```
+```
+systemctl restart nagios
+```
+
+### 2.0 Config
 
 ```
 vi /etc/nagios/objects/services.cfg
@@ -31,16 +43,6 @@ define service{
         }
 ```
 
-### 1.1 Run and Stop
-```
-chmod a+x /usr/lib64/nagios/plugins/check_solr_status.sh
-```
-```
-nagios -v /etc/nagios/nagios.cfg
-```
-```
-systemctl restart nagios
-```
 <hr/>
 
 ```
