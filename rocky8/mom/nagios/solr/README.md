@@ -2,9 +2,7 @@
 
 
 ### 1.1 Run and Stop
-```
-chmod a+x /usr/lib64/nagios/plugins/check_solr_status.sh
-```
+
 ```
 nagios -v /etc/nagios/nagios.cfg
 ```
@@ -143,4 +141,8 @@ else
     echo "OK: All cores are in active state."
     exit 0 # OK
 fi
+```
+
+```
+chmod a+x /usr/lib64/nagios/plugins/check_solr_status.sh
 ```
