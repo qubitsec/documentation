@@ -103,16 +103,16 @@ LOG_FILE="/var/log/nagios/solr_check_status.log"
 # 현재 날짜와 시간
 NOW=$(date '+%Y-%m-%d %H:%M:%S')
 
-# Solr 서버 주소, 포트, 코어 이름 설정
+# 인자로부터 Solr 서버 주소, 포트, 코어 이름 설정
 SOLR_HOST="$1"
 SOLR_PORT="$2"
 SOLR_CORE="$3"
 
-# 로그 시작 메시지
-echo "[$NOW] Starting Solr status check for core: $SOLR_CORE on $SOLR_HOST:$SOLR_PORT" >> $LOG_FILE
-
-# Solr CLUSTERSTATUS API URL
+# Solr CLUSTERSTATUS API URL 구성
 SOLR_URL="http://$SOLR_HOST:$SOLR_PORT/solr/admin/collections?action=CLUSTERSTATUS"
+
+# 로그 시작 메시지 및 SOLR_URL 로깅
+#echo "[$NOW] Checking Solr status for core: $SOLR_CORE on $SOLR_HOST:$SOLR_PORT using URL $SOLR_URL" >> $LOG_FILE
 
 # curl을 사용하여 Solr의 상태 정보 가져오기
 response=$(curl -s $SOLR_URL)
@@ -125,13 +125,16 @@ down_count=$(echo $response | grep -o '"state":"down"' | wc -l)
 
 # 상태에 따른 처리 및 로그 기록
 if [ "$recovering_count" -gt 0 ]; then
-    echo "CRITICAL: [$SOLR_CORE] $recovering_count core(s) are in recovering state." >> $LOG_FILE
+#    echo "CRITICAL: [$NOW] [$SOLR_CORE] $recovering_count core(s) are in recovering state on $SOLR_HOST:$SOLR_PORT" >> $LOG_FILE
+    echo "CRITICAL: [$SOLR_CORE] $recovering_count core(s) are in recovering state on $SOLR_HOST:$SOLR_PORT"
     exit 2 # CRITICAL
 elif [ "$down_count" -gt 0 ]; then
-    echo "CRITICAL: [$SOLR_CORE] $down_count core(s) are in down state." >> $LOG_FILE
+#    echo "CRITICAL: [$NOW] [$SOLR_CORE] $down_count core(s) are in down state on $SOLR_HOST:$SOLR_PORT" >> $LOG_FILE
+    echo "CRITICAL: [$SOLR_CORE] $down_count core(s) are in down state on $SOLR_HOST:$SOLR_PORT"
     exit 2 # CRITICAL
 else
-    echo "OK: All cores are in active state." >> $LOG_FILE
+#    echo "OK: [$NOW] All cores are in active state on $SOLR_HOST:$SOLR_PORT" >> $LOG_FILE
+    echo "OK: All cores are in active state on $SOLR_HOST:$SOLR_PORT"
     exit 0 # OK
 fi
 ```
