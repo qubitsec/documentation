@@ -82,7 +82,8 @@ vi /etc/nagios/objects/commands.cfg
 
 define command{
     command_name check_solr_status
-    command_line $USER1$/check_solr_status.sh
+    command_line $USER1$/check_solr_status.sh $HOSTADDRESS$ $ARG1$ $ARG2$
+#    command_line    /usr/lib64/nagios/plugins/check_solr_status.sh $HOSTADDRESS$ $ARG1$ $ARG2$
 }
 ```
 <hr/>
