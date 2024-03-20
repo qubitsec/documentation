@@ -114,7 +114,7 @@ vi /usr/lib64/nagios/plugins/check_solr_status.sh
 #!/bin/bash
 
 # 로그 파일 경로 설정
-LOG_FILE="/var/log/solr_check_status.log"
+LOG_FILE="/var/log/nagios/solr_check_status.log"
 
 # 현재 날짜와 시간
 NOW=$(date '+%Y-%m-%d %H:%M:%S')
