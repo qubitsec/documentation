@@ -2,20 +2,12 @@
 
 
 ## 1. Begin
-
-### 1.1 curl
-
-    curl -v https://repo.plura.io
-    
-    curl --noproxy '*' -v https://repo.plura.io
-    
-    curl --noproxy '*' --insecure -v https://repo.plura.io
-            
-### 1.2 number of lines in file
+          
+### 1.1 number of lines in file
 
     cat filename | wc -l
     
-### 1.3 Check Remote Ports
+### 1.2 Check Remote Ports
 
     dnf install nc
     
@@ -23,11 +15,11 @@
     
     nc -zv 192.168.56.10 20-80
 
-### 1.4 Check Remote Ports with UDP
+### 1.3 Check Remote Ports with UDP
 
     nc -zv -u 192.168.56.10 5514
 
-### 1.5 Check Disk : SSD or HDD
+### 1.4 Check Disk : SSD or HDD
 
     cat /sys/block/sda/queue/rotational
 
