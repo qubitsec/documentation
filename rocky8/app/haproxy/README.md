@@ -62,41 +62,59 @@ haproxy-2.8.7.tar.gz
     
     systemctl enable --now keepalived
 
-## 3. Setting rules to firewalld
 
-### 3.1 vi /etc/firewalld/zones/trusted.xml
+## 3. X-Forwarded-For Header Validation
+
+### 3.1 X-Forwarded-For
+ 
+```
+#---------------------------------------------------------------------
+# for security : http-request add-header X-Forwarded-For %[src]
+#---------------------------------------------------------------------
+    http-request set-header X-Forwarded-For %[src],%[req.hdr(X-Forwarded-For)] if { req.hdr(X-Forwarded-For) -m found }
+```
+ 
+## 4. Redirect for Backend http or https
+
+### 4.1 Connect to unsecure backend server
+
+```
+server mybackendserver 127.0.0.1:433 ssl verify none
+```
+
+### 4.2 Redirect all HTTP sites to HTTPS
+
+```
+acl http_www_qubitsec_com hdr_dom(host) -i qubitsec.com
+redirect prefix https://www.qubitsec.com if http_www_qubitsec_com
+```
+```
+systemctl restart haproxy
+```
+
+<hr/>
+
+## 9. Setting rules to firewalld
+
+### 9.1 vi /etc/firewalld/zones/trusted.xml
     
     <rule>
     <protocol value="vrrp"/>
     <accept/>
     </rule>
 
-### 3.2 vi /etc/firewalld/zones/public.xml
+### 9.2 vi /etc/firewalld/zones/public.xml
     
     <rule>
     <protocol value="vrrp"/>
     <accept/>
     </rule>
  
- ### 3.3 Restart
+ ### 9.3 Restart
     
     systemctl restart firewalld
- 
- 
- ## 4. Options
- 
- ### 4.1 Connect to unsecure backend server
-     
-    server mybackendserver 127.0.0.1:433 ssl verify none
- 
- ### 4.2 Redirect all HTTP sites to HTTPS
-     
-    acl http_www_qubitsec_com hdr_dom(host) -i qubitsec.com
-    redirect prefix https://www.qubitsec.com if http_www_qubitsec_com
-
-    systemctl restart haproxy
   
- ### 9.1 TESTING
+ ### 9.4 TESTING
     
     systemctl status systemd-tmpfiles-setup.service
     
