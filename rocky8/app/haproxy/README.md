@@ -56,12 +56,15 @@ haproxy-2.8.7.tar.gz
     
 ### 2.4 keepalived
 
-    dnf -y install keepalived
-    
-    vi /etc/keepalived/keepalived.conf
-    
-    systemctl enable --now keepalived
+```
+dnf -y install keepalived
 
+vi /etc/keepalived/keepalived.conf
+
+systemctl enable --now keepalived
+```
+
+<hr/>
 
 ## 3. X-Forwarded-For Header Validation
 
