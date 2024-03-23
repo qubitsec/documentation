@@ -7,6 +7,7 @@
     dnf clean all
     rm -rf /var/cache/dnf
     dnf makecache
+    
     dnf -y update
             
 ### 1.2 Clean yum
@@ -16,4 +17,5 @@
     yum clean all
     rm -rf /var/cache/yum
     yum makecache
+    
     yum -y update
