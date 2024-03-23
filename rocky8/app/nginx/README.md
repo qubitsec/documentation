@@ -82,3 +82,25 @@ Nginx conf
 
     chmod -R 755 /home
     chcon -R -t httpd_sys_content_t /home/users/
+
+<hr/>
+
+## 4. X-Forwarded-For Header Validation
+
+### 4.1 proxy_set_header
+ 
+```
+http {
+    server {
+        listen 80;
+        
+        location / {
+            proxy_pass http://upstream_server;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        }
+    }
+}
+```
+
