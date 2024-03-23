@@ -68,7 +68,7 @@ systemctl enable --now keepalived
 
 ## 3. X-Forwarded-For Header Validation
 
-### 3.1 X-Forwarded-For
+### 3.1 set-header
  
 ```
 #---------------------------------------------------------------------
