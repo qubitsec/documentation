@@ -97,6 +97,19 @@
 
     netstat -tunlp
 
+<hr/>
+
+## 3. X-Forwarded-For Header Validation
+
+### 3.1 to only trust the directly connected client's IP in the XFF header, without trusting any upstream proxy's XFF headers
+ 
+```
+forwarded_for delete
+```
+ 
+
+<hr/>
+
 ## X. Useful Links
 
     https://www.server-world.info/en/note?os=Rocky_Linux_8&p=squid&f=1
