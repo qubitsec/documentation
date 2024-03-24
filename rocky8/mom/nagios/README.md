@@ -126,9 +126,27 @@ systemctl restart nagios
 
 <hr/>
 
-## 3. Mail
+### 3.1 Change main.php to services
 
-### 3.1 Config
+```
+cd /usr/share/nagios/html/
+
+cp index.php index.php.bak
+```
+
+```
+vi index.php
+
+<?php
+// Allow specifying main window URL for permalinks, etc.
+//$url = 'main.php';
+$url = '/nagios/cgi-bin/status.cgi?host=all';
+```
+
+
+## 4. Mail
+
+### 4.1 Config
 
 ```
 vi /etc/nagios/objects/contacts.cfg
@@ -143,7 +161,7 @@ define contact {
 }
 ```
 
-### 3.2
+### 4.2
 
 ```
 vi /etc/nagios/objects/commands.cfg
@@ -159,8 +177,16 @@ define command {
 }
 ```
 
-### 3.3 Config for remote smtp with 
+<hr/>
 
+## 5. Setting for 
+
+### 5.1 msmtp
+```
+dnf -y install msmtp
+```
+
+### 5.2 Config
 ```
 vi /etc/msmtprc 
 
@@ -181,24 +207,13 @@ password       yourpassword
 account default : nagios
 ```
 
+### 5.3 Testing
+```
+echo "This is the body of the email" | msmtp --debug recipient@plura.kr
+```
+
 <hr/>
 
-### 4.1 Change main.php to services
-
-```
-cd /usr/share/nagios/html/
-
-cp index.php index.php.bak
-```
-
-```
-vi index.php
-
-<?php
-// Allow specifying main window URL for permalinks, etc.
-//$url = 'main.php';
-$url = '/nagios/cgi-bin/status.cgi?host=all';
-```
 
 ## X. Useful Links
 
