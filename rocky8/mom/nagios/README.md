@@ -57,6 +57,8 @@ define service{
         }
 ```
 
+<hr/>
+
 ## 2. Register new url
 
 ### 2.1 Register for http_check
@@ -89,7 +91,9 @@ define service{
     notifications_enabled   1
 }
 ```
-<hr/>
+```
+chmod 600 /etc/msmtprc
+```
 
 ### 2.2 Register for http_check
 
@@ -146,11 +150,11 @@ $url = '/nagios/cgi-bin/status.cgi?host=all&servicestatustypes=28';
 
 $url = '/nagios/cgi-bin/status.cgi?hostgroup=all&style=summary';
 ```
-
+<hr/>
 
 ## 4. Mail
 
-### 4.1 Config
+### 4.1 Config with contacts
 
 ```
 vi /etc/nagios/objects/contacts.cfg
@@ -165,7 +169,7 @@ define contact {
 }
 ```
 
-### 4.2
+### 4.2 Config with commands
 
 ```
 vi /etc/nagios/objects/commands.cfg
