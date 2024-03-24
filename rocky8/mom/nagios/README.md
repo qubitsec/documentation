@@ -140,7 +140,11 @@ vi index.php
 <?php
 // Allow specifying main window URL for permalinks, etc.
 //$url = 'main.php';
+
 $url = '/nagios/cgi-bin/status.cgi?host=all';
+$url = '/nagios/cgi-bin/status.cgi?host=all&servicestatustypes=28';
+
+$url = '/nagios/cgi-bin/status.cgi?hostgroup=all&style=summary';
 ```
 
 
