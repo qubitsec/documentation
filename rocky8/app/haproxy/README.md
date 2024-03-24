@@ -76,7 +76,9 @@ systemctl enable --now keepalived
 #---------------------------------------------------------------------
     http-request set-header X-Forwarded-For %[src],%[req.hdr(X-Forwarded-For)] if { req.hdr(X-Forwarded-For) -m found }
 ```
- 
+
+<hr/>
+
 ## 4. Redirect for Backend http or https
 
 ### 4.1 Connect to unsecure backend server
