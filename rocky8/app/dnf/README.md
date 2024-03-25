@@ -1,6 +1,6 @@
 # dnf
 
-### 1.1 Clean dnf
+### 1.0 Clean dnf
 
 ```
 rm -f /var/lib/rpm/__*
@@ -16,7 +16,7 @@ dnf -y update
 
 <hr/>
             
-### 1.2 Clean yum
+### 2.0 Clean yum
 
 ```
 rm -f /var/lib/rpm/__*
