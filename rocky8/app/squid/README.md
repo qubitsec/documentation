@@ -82,6 +82,8 @@
 ### 3.3 setting selinx with regexpress
     semanage fcontext -a -t squid_log_t "/var/log/plura(/.*)?"
 
+<hr/>
+
 ## 4. PLURA-SQUID
 
 ### 4.1 add info
