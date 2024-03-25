@@ -42,6 +42,7 @@ chronyc sources
 ````
 ````
 dnf -y install ntpstat
+sleep 1
 
 ntpstat
 ````
