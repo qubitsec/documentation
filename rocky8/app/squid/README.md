@@ -99,15 +99,13 @@
 
 <hr/>
 
-## 3. X-Forwarded-For Header Validation
+## 5. X-Forwarded-For Header Validation
 
-### 3.1 to only trust the directly connected client's IP in the XFF header, without trusting any upstream proxy's XFF headers
- 
+### 5.1 to only trust the directly connected client's IP in the XFF header, without trusting any upstream proxy's XFF headers
+
 ```
 forwarded_for delete
 ```
- 
-
 <hr/>
 
 ## X. Useful Links
