@@ -6,7 +6,11 @@ chrony conf
 ### 1.1 Install
 ````
 dnf -y install chrony
-````            
+````
+````
+yum -y update chrony
+````
+
 ### 1.2 Edit for chrony
 
 ````
