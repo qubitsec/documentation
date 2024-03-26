@@ -1,6 +1,6 @@
 # LibreOffice
 
-## 1. Create user
+## 1. Basic
 
 ### 1.1 Uninstall
 
