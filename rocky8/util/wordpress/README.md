@@ -25,6 +25,8 @@ systemctl restart nginx
 
 ```
 wget https://www.wordpress.org/latest.tar.gz
+
+wget https://ko.wordpress.org/latest-ko_KR.tar.gz
 ```
 
 ## 2.
