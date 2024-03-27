@@ -73,7 +73,7 @@ vi proxy-test.php
 // WordPress 환경 불러오기.
 require('wp-blog-header.php');
 
-$response = wp_remote_get('https://www.wordpress.com');
+$response = wp_remote_get('https://example.com');
 
 if (is_wp_error($response)) {
     echo '연결 실패: ', $response->get_error_message();
