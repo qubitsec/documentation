@@ -37,10 +37,6 @@ dnf install php-gd php-intl php-zip
 dnf install php-imagick
 dnf install php-curl php-openssl
 ```
-
-```
-
-```
 <hr/>
 
 ### 2.2 create database
@@ -51,6 +47,11 @@ CREATE DATABASE wp_database_name DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode
 CREATE USER 'username'@'localhost' IDENTIFIED BY 'password';
 GRANT ALL PRIVILEGES ON wp_database_name.* TO 'username'@'localhost';
 FLUSH PRIVILEGES;
+```
+
+
+```
+UPDATE wp_options SET option_value = 'https://blog.plura.io' WHERE option_name = 'home' OR option_name = 'siteurl';
 ```
 
 <hr/>
