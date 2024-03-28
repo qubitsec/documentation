@@ -8,7 +8,10 @@ dnf -y install epel-release
 dnf install https://rpms.remirepo.net/enterprise/remi-release-8.rpm
 
 dnf -y install php:remi-7.4
+dnf module list php
+dnf module reset php
 dnf module enable php:remi-7.4
+dnf module -y install php:remi-7.4/common
 
 php -v
 ```
