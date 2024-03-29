@@ -27,9 +27,9 @@ systemctl restart nginx
 ### 1.3 Download
 
 ```
-wget https://www.wordpress.org/latest.tar.gz
-
 wget https://ko.wordpress.org/latest-ko_KR.tar.gz
+
+wget https://www.wordpress.org/latest.tar.gz
 ```
 
 ## 2.
@@ -38,8 +38,6 @@ wget https://ko.wordpress.org/latest-ko_KR.tar.gz
 
 ```
 dnf install php-gd php-imagick php-intl php-zip
-dnf install php-gd php-intl php-zip
-dnf install php-imagick
 dnf install php-curl php-openssl
 ```
 <hr/>
