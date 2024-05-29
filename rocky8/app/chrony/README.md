@@ -54,3 +54,14 @@ firewall-cmd --add-service=ntp --permanent
 
 firewall-cmd --reload
 ````
+
+### 2.1 Manual date Change
+
+````
+date -s "2024-05-01 19:41:00"
+
+date +%D -s "2024-05-01"
+
+date +%T -s "19:41:00"
+````
+
