@@ -54,7 +54,74 @@ main.conf
 
     tail -f /var/log/maillog
 
+</hr>
 
+## 3. Authenticated SMTP or Submission
+
+### 3.1 Install with package
+    
+    dnf -y install cyrus-sasl-plain
+
+### 3.2 Postfix config
+
+```
+vi /etc/postfix/main.cf
+
+# Relayhost 설정: 외부 SMTP 서버를 지정합니다.
+relayhost = [smtp.example.com]:25
+
+# SASL 인증 설정
+smtp_sasl_auth_enable = yes
+smtp_sasl_password_maps = hash:/etc/postfix/sasl_passwd
+smtp_sasl_security_options = noanonymous
+smtp_sasl_mechanism_filter = login
+smtp_tls_security_level = none
+header_size_limit = 4096000
+```
+
+### 3.3 SASL
+
+```
+vi /etc/postfix/sasl_passwd
+
+[smtp.example.com]:25    your-email@example.com:your-password
+```
+
+
+### 3.4 Check config and create database
+
+```
+sudo chmod 600 /etc/postfix/sasl_passwd
+sudo postmap /etc/postfix/sasl_passwd
+
+```
+
+### 3.5 Check logging
+
+```
+sudo systemctl restart postfix
+sudo systemctl enable postfix
+
+```
+
+### 3.6 Test and check logging
+
+```
+echo "This is a test email." | mailx -s "Test Subject" recipient@example.com
+
+sudo tail -f /var/log/maillog
+
+```
+
+### 3.7 Debug
+
+```
+sudo journalctl -u postfix
+
+sudo postconf -n
+
+
+```
 
 ## X. Useful Links
 
