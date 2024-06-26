@@ -200,7 +200,9 @@ sleep 1
 createrepo --update /var/www/repos/centos/7/extras/x86_64/
 sleep 1
 createrepo --update /var/www/repos/centos/7/centosplus/x86_64/
+sleep 1
 
 reposync -p /var/www/repos/ --newest-only --repo=epel --download-metadata
 createrepo --update /var/www/repos/epel/
+sleep 1
 ```
