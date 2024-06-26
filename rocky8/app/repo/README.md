@@ -148,9 +148,11 @@ sleep 1
 createrepo --update /var/www/repos/rocky/8/x86_64/os/baseos/
 sleep 1
 createrepo --update /var/www/repos/rocky/8/x86_64/os/extras/
+sleep 1
 
 reposync -p /var/www/repos/rocky/epel/8/Everything/x86_64/ --newest-only --repo=epel --download-metadata
 createrepo --update /var/www/repos/rocky/epel/8/Everything/x86_64/
+sleep 1
 ```
 
 <hr/>
@@ -177,10 +179,11 @@ sleep 1
 createrepo /var/www/repos/centos/7/extras/x86_64/
 sleep 1
 createrepo /var/www/repos/centos/7/centosplus/x86_64/
+sleep 1
 
 reposync -p /var/www/repos/ --repo=epel --download-metadata
 createrepo /var/www/repos/epel/
-
+sleep 1
 ```
 
 ### 6.2 Periodic updates
