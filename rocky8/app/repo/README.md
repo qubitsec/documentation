@@ -144,7 +144,9 @@ reposync -p /var/www/repos/rocky/8/x86_64/os/ --newest-only --repo=appstream --d
 reposync -p /var/www/repos/rocky/8/x86_64/os/ --newest-only --repo=extras --download-metadata
 
 createrepo --update /var/www/repos/rocky/8/x86_64/os/appstream/
+sleep 1
 createrepo --update /var/www/repos/rocky/8/x86_64/os/baseos/
+sleep 1
 createrepo --update /var/www/repos/rocky/8/x86_64/os/extras/
 
 reposync -p /var/www/repos/rocky/epel/8/Everything/x86_64/ --newest-only --repo=epel --download-metadata
@@ -169,8 +171,11 @@ reposync -p /var/www/repos/centos/7/extras/x86_64/ --repo=extras --download-meta
 reposync -p /var/www/repos/centos/7/centosplus/x86_64/ --repo=centosplus --download-metadata
 
 createrepo /var/www/repos/centos/7/os/x86_64/
+sleep 1
 createrepo /var/www/repos/centos/7/updates/x86_64/
+sleep 1
 createrepo /var/www/repos/centos/7/extras/x86_64/
+sleep 1
 createrepo /var/www/repos/centos/7/centosplus/x86_64/
 
 reposync -p /var/www/repos/ --repo=epel --download-metadata
@@ -186,8 +191,11 @@ reposync -p /var/www/repos/centos/7/extras/x86_64/ --newest-only --repo=extras -
 reposync -p /var/www/repos/centos/7/centosplus/x86_64/ --newest-only --repo=centosplus --download-metadata
 
 createrepo --update /var/www/repos/centos/7/os/x86_64/
+sleep 1
 createrepo --update /var/www/repos/centos/7/updates/x86_64/
+sleep 1
 createrepo --update /var/www/repos/centos/7/extras/x86_64/
+sleep 1
 createrepo --update /var/www/repos/centos/7/centosplus/x86_64/
 
 reposync -p /var/www/repos/ --newest-only --repo=epel --download-metadata
