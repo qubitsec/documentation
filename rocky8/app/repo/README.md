@@ -195,9 +195,9 @@ sleep 1
 ```
 ```
 reposync -p /var/www/repos/ --repo=epel --download-metadata
-sleep 1
+```
+```
 createrepo /var/www/repos/epel/
-sleep 1
 ```
 
 ### 6.2 Periodic updates
@@ -223,7 +223,7 @@ sleep 1
 ```
 ```
 reposync -p /var/www/repos/ --newest-only --repo=epel --download-metadata
-sleep 1
+```
+```
 createrepo --update /var/www/repos/epel/
-sleep 1
 ```
