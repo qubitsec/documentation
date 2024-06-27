@@ -157,6 +157,8 @@ sleep 1
 ```
 reposync -p /var/www/repos/rocky/epel/8/Everything/x86_64/ --newest-only --repo=epel --download-metadata
 sleep 1
+```
+```
 createrepo --update /var/www/repos/rocky/epel/8/Everything/x86_64/
 sleep 1
 ```
