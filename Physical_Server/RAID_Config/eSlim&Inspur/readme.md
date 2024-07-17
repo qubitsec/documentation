@@ -1,4 +1,4 @@
-eSlim / inspur 서버 바이오스 HDD RAID 설정
+eSlim / inspur 서버 바이오스 HDD RAID 설정<br>
 ※ 서버에 HDD 장착 후 정상 녹색 점등 확인
 
 1. 서버 On 후, ‘Del’ 키 입력으로 바이오스 진입<br><br>
